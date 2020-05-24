@@ -1,0 +1,23 @@
+server:
+  port: 8060
+spring:
+  application:
+    name: hystrix
+feign:
+  hystrix:
+    enabled: true
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 192.168.31.17
+    instance-id: ${eureka.instance.ip-address}:${server.port}
+    lease-expiration-duration-in-seconds: 6
+    lease-renewal-interval-in-seconds: 3
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream'

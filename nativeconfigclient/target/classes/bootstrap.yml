@@ -1,0 +1,10 @@
+spring:
+  application:
+    # 通过spring.application.name与profiles.active的内容拼接去配置中心拿配置文件
+    name: configclient
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8762
+      fail-fast: true

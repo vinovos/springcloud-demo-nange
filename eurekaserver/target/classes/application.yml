@@ -1,0 +1,15 @@
+server:
+  port: 8761
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+  server:
+    #自我保护开关，一般15分钟内85点客户端都失去心跳，则会开启保护模式，不再移除instance
+    enable-self-preservation: true
+    # 检查服务失效时间间隔
+    eviction-interval-timer-in-ms: 15000
